@@ -4,8 +4,8 @@ Problem: Given A Binary Tree Print Preorder, Inorder, Postorder & Level Order Tr
 Input:             1
                 /     \
               2         3
-            /   \      /   \
-          4       5  6       7
+            /   \      /  \
+          4       5  6      7
           
 Output: Preorder: [1, 2, 4, 5, 3, 6, 7]
         Inorder: [4, 2, 5, 1, 6, 3, 7]
