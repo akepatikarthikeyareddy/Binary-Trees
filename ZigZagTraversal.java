@@ -33,28 +33,28 @@ class TreeNode{
 }
 
 class Tree {
-	static ArrayList<Integer> zigZagTraversal(TreeNode root) {
-	    ArrayList<Integer> ans = new ArrayList<Integer>();
-	    if(root == null) return ans;
-	    Queue<TreeNode> queue = new LinkedList<>();
-	    queue.offer(root);
-	    boolean flag = false;
-	    while(!queue.isEmpty()){
-	        int size = queue.size();
-	        ArrayList<Integer> temp = new ArrayList<>();
-	        for(int i = 0; i < size; i++){
-	            if(queue.peek().left != null) queue.offer(queue.peek().left);
-	            if(queue.peek().right != null) queue.offer(queue.peek().right);
-	            temp.add(queue.poll().data);
-	        }
-	        if(flag){
-	            Collections.reverse(temp);
-	        }
-	        for(int i: temp) ans.add(i);
-	        flag = !flag;
+    static ArrayList<Integer> zigZagTraversal(TreeNode root) {
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+	if(root == null) return ans;
+	Queue<TreeNode> queue = new LinkedList<>();
+	queue.offer(root);
+	boolean flag = false;
+	while(!queue.isEmpty()){
+	    int size = queue.size();
+	    ArrayList<Integer> temp = new ArrayList<>();
+	    for(int i = 0; i < size; i++){
+	        if(queue.peek().left != null) queue.offer(queue.peek().left);
+	        if(queue.peek().right != null) queue.offer(queue.peek().right);
+	        temp.add(queue.poll().data);
 	    }
-	    return ans;
+	    if(flag){
+	        Collections.reverse(temp);
+	    }
+	    for(int i: temp) ans.add(i);
+	    flag = !flag;
 	}
+	return ans;
+    }
 }
 
 /*
