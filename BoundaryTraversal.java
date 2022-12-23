@@ -7,7 +7,7 @@ Input:             1
             /   \      /  \
           4       5  6      7
 		        /      \
-			  8          9
+		      8          9
         
 Output: The Boundary Traversal Is: [1, 2, 4, 8, 9, 7, 3]
 */
@@ -39,39 +39,39 @@ class TreeNode{
 class Tree {
     static ArrayList<Integer> ans = new ArrayList<>();
     static ArrayList<Integer> temp = new ArrayList<>();
-	static ArrayList <Integer> boundaryTraversal(TreeNode root) {
-	    if(root == null) return ans;
-	    if(root.left != null || root.right != null) ans.add(root.data);
-	    leftBoundary(root.left);
-	    leafNodes(root);
-	    rightBoundary(root.right);
-	    Collections.reverse(temp);
-	    for(int i: temp) ans.add(i);
-	    return ans;
-	}
-	static void leftBoundary(TreeNode root){
-	    if(root == null) return;
-	    if(root.left == null && root.right == null) return;
+    static ArrayList <Integer> boundaryTraversal(TreeNode root) {
+        if(root == null) return ans;
+	if(root.left != null || root.right != null) ans.add(root.data);
+	leftBoundary(root.left);
+	leafNodes(root);
+	rightBoundary(root.right);
+	Collections.reverse(temp);
+	for(int i: temp) ans.add(i);
+	return ans;
+    }
+    static void leftBoundary(TreeNode root){
+        if(root == null) return;
+	if(root.left == null && root.right == null) return;
+	ans.add(root.data);
+	if(root.left != null) leftBoundary(root.left);
+	else leftBoundary(root.right);
+    }
+    static void leafNodes(TreeNode root){
+	if(root == null) return;
+	leafNodes(root.left);
+	if(root.left == null && root.right == null){
 	    ans.add(root.data);
-	    if(root.left != null) leftBoundary(root.left);
-	    else leftBoundary(root.right);
+	    return;
 	}
-	static void leafNodes(TreeNode root){
-	    if(root == null) return;
-	    leafNodes(root.left);
-	    if(root.left == null && root.right == null){
-	        ans.add(root.data);
-	        return;
-	    }
-	    leafNodes(root.right);
-	}
-	static void rightBoundary(TreeNode root){
-	    if(root == null) return;
-	    if(root.left == null && root.right == null) return;
-	    temp.add(root.data);
-	    if(root.right != null) rightBoundary(root.right);
-	    else rightBoundary(root.left);
-	}
+	leafNodes(root.right);
+    }
+    static void rightBoundary(TreeNode root){
+	if(root == null) return;
+	if(root.left == null && root.right == null) return;
+	temp.add(root.data);
+	if(root.right != null) rightBoundary(root.right);
+	else rightBoundary(root.left);
+    }
 }
 
 
