@@ -21,8 +21,8 @@ class BoundaryTraversal {
         root.left.right = new TreeNode(5);
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
-		root.left.right.left = new TreeNode(8);
-		root.right.left.right = new TreeNode(9);
+	root.left.right.left = new TreeNode(8);
+	root.right.left.right = new TreeNode(9);
         System.out.print("The Boundary Traversal Is: " + Tree.boundaryTraversal(root));
     }
 }
