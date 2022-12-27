@@ -6,8 +6,8 @@ Input:             1
               2         3
             /   \      /  \
           4       5  6      7
-		        /      \
-			  8          9
+		/      \
+	      8          9
         
 Output: The Vertical Order Traversal Is: [4, 2, 8, 1, 5, 6, 3, 9, 7]
 */
